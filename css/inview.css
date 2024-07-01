@@ -1,0 +1,87 @@
+@charset "utf-8";
+/*up,down,transform1,transform2の共通設定
+---------------------------------------------------------------------------*/
+.up, .down, .transform1, .transform2 {
+	position: relative;
+	opacity: 0;		
+}
+/*up,down,transform1,transform2の共通設定
+---------------------------------------------------------------------------*/
+.upstyle, .downstyle, .transform1style, .transform2style {
+	opacity: 1;				
+	transition: 1s 0.5s;	
+}
+/*upスタイル。下から上にフェードインしてくるスタイル
+---------------------------------------------------------------------------*/
+.up {
+	bottom: -20px;	/*基準値の下20pxの場所からスタート*/
+}
+.upstyle {
+	bottom: 0px;
+}
+/*downスタイル。上から下にフェードインしてくるスタイル
+---------------------------------------------------------------------------*/
+.down {
+	top: -20px;	
+}
+.downstyle {
+	top: 0px;	
+}
+
+/*transform1スタイル。
+---------------------------------------------------------------------------*/
+.transform1 {
+	transform: scaleX(0);
+}
+
+
+.transform1style {
+	transform: scaleX(1);	
+}
+
+
+/*transform2スタイル。
+---------------------------------------------------------------------------*/
+.transform2 {
+	transform: perspective(400px) translateZ(-70px) rotateX(50deg);
+}
+
+.transform2style {
+	transform: perspective(400px) translateZ(0px) rotateX(0deg);
+}
+
+.blur {
+	opacity: 0;	
+	filter: blur(30px);
+	transform: scale(1.1);
+}
+
+.blurstyle {
+	opacity: 1;
+	filter: blur(0);
+	transform: scale(1);
+	transition: 1s 0.5s;
+}
+/*transform3スタイル。
+---------------------------------------------------------------------------*/
+@keyframes transform3 {
+0% {
+	transform: scale(0);
+}
+50% {
+	transform: scale(1.05);
+}
+70% {
+	transform: scale(0.99);
+}
+100% {
+	transform: scale(1);
+}
+}
+.transform3 {
+	transform: scale(0);
+}
+.transform3style {
+	animation: transform3 0.8s ease-out 0.5s both;
+}
+
